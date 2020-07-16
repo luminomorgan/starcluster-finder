@@ -136,14 +136,14 @@ def read_ascii_table(infile, header_string, columns, type_variable):
 
 flag_interp = 0 # (0/1) = (no interp / interp)
 
-path_filters = '/Users/marcusduarte/pCloudSync/pCloudSync/synthetic_mags/SPLUS/filter_curves/'
+path_filters = '.../'
 list_filters = 'SPLUS_filters.list'
 
 #list_spec = 'NGSLnewsorted.list'
 #path_spec = './NGSLsorted_new/'
 
 list_spec = 'spec.list'
-path_spec = '/Users/marcusduarte/pCloudSync/pCloudSync/synthetic_mags/SPLUS/Models/PICKLES/'
+path_spec = '.../'
 
 ## Wavelength range (\AA)
 
