@@ -52,7 +52,7 @@ def load_jplus_filter(infile):
     s_filter = []
     for line in data:
         p = line.split()
-        if p[0] <> '#':
+        if p[0] != '#':
             l_filter.append(float(p[0]))
             s_filter.append(float(p[1]))
 
@@ -99,8 +99,8 @@ def read_ascii_table(infile, header_string, columns, type_variable):
 
     # Arrays columns and type_variables have different lengths
 
-    if len(columns) <> len(type_variable): 
-        print '[read_ascii_table] len(columns) <> len(type_variables)'
+    if len(columns) != len(type_variable): 
+        print("[read_ascii_table] len(columns) != len(type_variables)")
         exit()
 
     # Load table
@@ -118,7 +118,7 @@ def read_ascii_table(infile, header_string, columns, type_variable):
         nline = -1
         n0 += 1
         #print n0, p[0]
-        if p[0][0] <> header_string: 
+        if p[0][0] != header_string: 
             for i in range(len(columns)):
                 nline += 1
                 if type_variable[i] == 0: # string
@@ -128,7 +128,7 @@ def read_ascii_table(infile, header_string, columns, type_variable):
                 if type_variable[i] == 2: # integer
                     matrix[nline].append(int(p[columns[i]]))
                 if type_variable[i] > 2 or type_variable[i] < 0:
-                    print '[read_ascii_table] type_variables -> bad values!!'
+                    print("[read_ascii_table] type_variables -> bad values!!")
                     exit()
     return matrix
 
@@ -136,14 +136,14 @@ def read_ascii_table(infile, header_string, columns, type_variable):
 
 flag_interp = 0 # (0/1) = (no interp / interp)
 
-path_filters = '.../'
-list_filters = 'SPLUS_filters.list'
+path_filters = "./filter/"
+list_filters = "SPLUS_filters.list"
 
 #list_spec = 'NGSLnewsorted.list'
 #path_spec = './NGSLsorted_new/'
 
-list_spec = 'spec.list'
-path_spec = '.../'
+list_spec = "spec.list"
+path_spec = "./"
 
 ## Wavelength range (\AA)
 
@@ -194,10 +194,10 @@ if __name__ == '__main__':
 
     l_out = np.arange(l_min, l_max + 1., dl)
 
-    print '>> Reading input list<<'
-    print
-    print 'list=',list_spec
-    print
+    print(">> Reading input list<<")
+    print()
+    print("list=", list_spec)
+    print()
     #
     f = open(list_spec,'r')
     data = f.readlines()
@@ -207,18 +207,18 @@ if __name__ == '__main__':
     file_spec = []
     for line in data:
         p = line.split()
-        if p[0] <> '#':
+        if p[0] != '#':
             file_spec.append(str(p[0]))
 
     file_spec = np.array(file_spec)
-    print 'Number of spectra = ',len(file_spec)
-
+    print("Number of spectra = ", len(file_spec))
+    
     # Loading SPLUS filters
 
     l_filters, qe_filters, file_filters_SPLUS = load_SPLUS_set_filters(list_filters, path_filters, dl)
     n_filters = len(l_filters[:,1])
-    print 'n_filters = ',n_filters
-    print file_filters_SPLUS
+    print("'n_filters = ", n_filters)
+    print(file_filters_SPLUS)
 
     # Calculate lambda pivot
 
@@ -233,7 +233,7 @@ if __name__ == '__main__':
 
     for ii in range(len(file_spec)):
 
-        print ii, path_spec + file_spec[ii]
+        print(ii, path_spec + file_spec[ii])
 
         # Loading spectrum
 
