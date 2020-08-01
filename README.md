@@ -2,7 +2,7 @@ Artificial Neural Network - Classification of Stars and Simple Stellar Populatio
 ================
 Morgan Sabino Camargo, Paula Coelho, Alessandro Ederoclite
 
-This is an ANN classification algorithm written in R, applied to real data coming from crossmatch of multiple sky surveys. First of all we implement the functions we use to compose the network.
+This is an ANN classification algorithm written in R (the original can be found here: https://github.com/barbarabenvenuto/ann), applied to real data coming from crossmatch of multiple sky surveys. First of all we implement the functions we use to compose the network.
 
 Activation functions convert an input signal of a node to an output signal that can be used as input in the next layer. Here we use the Sigmoid and Softmax functions.
 
