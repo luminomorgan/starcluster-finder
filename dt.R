@@ -1,5 +1,5 @@
+# The data is acquired by TAP via Virtual Observatory software (TOPCAT) and will be reorganized so it can be properly used by the main algorithm.
 
-#Os dados são lidos como adquiridos por TAP, em formato csv
 dpath = "~/starcluster-finder/catalog/xdata.csv"
 ncol = rep("numeric", 23)
 csvDataset = read.csv(dpath, row.names = 'gaia_id', colClasses = c("character", ncol))
