@@ -1,6 +1,6 @@
 
 #Os dados são lidos como adquiridos por TAP, em formato csv
-dpath = "~/astrodata/catalog/xdata.csv"
+dpath = "~/starcluster-finder/catalog/xdata.csv"
 ncol = rep("numeric", 23)
 csvDataset = read.csv(dpath, row.names = 'gaia_id', colClasses = c("character", ncol))
 colours = c('FUV-r', 'NUV-r', 'u-r', 'J378-r', 'J395-r', 'J410-r', 'J430-r', 'g-r', 'J515-r', 'bp-r', 'r-J660', 'r-G','r-i','r-rp', 'r-J861', 'r-z', 'r-J', 'r-H', 'r-Ks', 'r-W1', 'r-W2', 'r-W3', 'r-W4')
