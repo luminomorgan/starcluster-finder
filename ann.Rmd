@@ -1,6 +1,6 @@
 ---
-title: "Artificial Neural Network - Classification of Stars and Simple Stellar Populations"
-author: Bárbara Benvenuto, Paula Coelho
+title: "Artificial Neural Network - Classification of Stars and Simple Stellar Populations applied to PASTA data set"
+author: Morgan Camargo, Paula Coelho, Alessandro Ederoclite
 output: 
   html_notebook: 
     toc: true
