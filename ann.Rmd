@@ -280,7 +280,7 @@ require(tidyverse)
 
 ```
 
-Our data is stored in file `anndataset_n_l.txt`. 
+Our data is stored in file `xdata_nl.txt`. 
 
 ```{r}
 datafile <- "~/starcluster-finder/catalog/xdata_nl.txt" 
@@ -298,15 +298,15 @@ Let's take a look at the data:
 glimpse(datasample)
 
 datasample %>%
-   ggplot(aes(x = `g-r`, fill = class)) +
+   ggplot(aes(x = "g-r", fill = class)) +
    geom_density(alpha = 0.5)
 
 datasample %>%
-   ggplot(aes(x = `g-r`, y = `u-r`)) +
+   ggplot(aes(x = "g-r", y = "u-r")) +
    geom_point(aes(color = class), alpha = 0.5)
 
 datasample %>%
-   ggplot(aes(x = `g-r`, y = `r-i`)) +
+   ggplot(aes(x = "g-r", y = "r-i")) +
    geom_point(aes(color = class), alpha = 0.5)
 ```
 
