@@ -16,4 +16,4 @@ dataset = cbind(dataset,label)
 dataset1 = data.frame(cbind(dataset$label,dataset[1:23]))
 colnames(dataset1) = c('label',colours)
 
-write.table(dataset1, file="xdata_nl.txt")  # normalized, labeled
+write.table(dataset1, file = "~/starcluster-finder/catalog/xdata_nl.txt")  # normalized, labeled
