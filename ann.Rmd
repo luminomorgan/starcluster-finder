@@ -49,8 +49,8 @@ load_dataset = function(vals, tests) {
   dataset = rbind(ssp,dataset[637:dim(dataset)[1],])
   dataset = dataset[sample(nrow(dataset)),]  # sorting randomly
   
-  X = matrix(unlist(dataset), ncol = 12)
-  X = X[,2:12]
+  X = matrix(unlist(dataset), ncol = 24)
+  X = X[,2:24]
   Y = dataset$label
   
   vals = as.integer(vals*dim(dataset)[1])
@@ -171,7 +171,7 @@ back_propagation = function(ann_model, probs, a2, model) {
   # backpropagating
   
   error = probs
-  for (i in 1:ann_model$n_train) {
+  for (i in 1:ann_model$n_train){
     error[i,Y_train[i]] = error[i,Y_train[i]] - 1 }  # loss function derivative
   delta1 = error %*% t(W2) * sigmoid(a2, d = TRUE)
   
