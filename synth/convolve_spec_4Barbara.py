@@ -143,12 +143,12 @@ list_filters = "SPLUS_filters.list"
 #path_spec = './NGSLsorted_new/'
 
 list_spec = "spec.list"
-path_spec = "./"
+path_spec = "./spec/"
 
 ## Wavelength range (\AA)
 
-l_min = 1500.
-l_max = 11000.
+l_min = 500.
+l_max = 100000.
 dl = 1. # wavelength resolution
 l = np.arange(l_min, l_max + 1., 1.)
 
@@ -184,7 +184,7 @@ c_AAs = 2.99792458e18
 
 # Plotting spec + synthetic mags
 
-flag_plot = 1. # (0/1) = (DO NOT plot/ plot)
+flag_plot = 0. # (0/1) = (DO NOT plot/ plot)
 
 ########################################################################
 

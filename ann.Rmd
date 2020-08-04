@@ -38,15 +38,14 @@ we need: training (60%), validation (20%) and test (20%).
 ```{r}
 load_dataset = function(vals, tests) {
   
-  dpath = "~/starcluster-finder/catalog/xdata_nl.txt"
+  dpath = "~/starcluster-finder/catalog/xdata+ssp.txt"
   dataset = read.csv(dpath, sep = "")
   colours = c('FUV-r', 'NUV-r', 'u-r', 'J378-r', 'J395-r', 'J410-r', 'J430-r', 'g-r', 'J515-r', 'bp-r', 'r-J660', 'r-G','r-i','r-rp', 'r-J861', 'r-z', 'r-J', 'r-H', 'r-Ks', 'r-W1', 'r-W2', 'r-W3', 'r-W4')
 
   colnames(dataset) = c('label', colours)
-  
   # the initial sample must have 10% of SSPs and 90% of stars
-  ssp = dataset[sample(nrow(dataset[1:636,]), size = as.integer(3727/9)),]  # 10%
-  dataset = rbind(ssp,dataset[637:dim(dataset)[1],])
+  ssp = dataset[sample(nrow(dataset[1:531,]), size = as.integer(21982/9), replace = TRUE),]  # 10%
+  dataset = rbind(ssp,dataset[531:dim(dataset)[1],])
   dataset = dataset[sample(nrow(dataset)),]  # sorting randomly
   
   X = matrix(unlist(dataset), ncol = 24)
@@ -283,7 +282,7 @@ require(tidyverse)
 Our data is stored in file `xdata_nl.txt`. 
 
 ```{r}
-datafile <- "~/starcluster-finder/catalog/xdata_nl.txt" 
+datafile <- "~/starcluster-finder/catalog/xdata+ssp.txt" 
 datasample <- read.csv(datafile, sep="")
 colours = c('FUV-r', 'NUV-r', 'u-r', 'J378-r', 'J395-r', 'J410-r', 'J430-r', 'g-r', 'J515-r', 'bp-r', 'r-J660', 'r-G','r-i','r-rp', 'r-J861', 'r-z', 'r-J', 'r-H', 'r-Ks', 'r-W1', 'r-W2', 'r-W3', 'r-W4')
 colnames(datasample) <- c('class',colours)
@@ -298,30 +297,14 @@ Let's take a look at the data:
 glimpse(datasample)
 
 datasample %>%
-   ggplot(aes(x = "g-r", fill = class)) +
+   ggplot(aes(x = `g-r`, fill = class)) +
    geom_density(alpha = 0.5)
 
 datasample %>%
-   ggplot(aes(x = "g-r", y = "u-r")) +
+   ggplot(aes(x = `g-r`, y = `u-r`)) +
    geom_point(aes(color = class), alpha = 0.5)
 
 datasample %>%
-   ggplot(aes(x = "g-r", y = "r-i")) +
+   ggplot(aes(x = `g-r`, y = `r-i`)) +
    geom_point(aes(color = class), alpha = 0.5)
 ```
-
-
-Danielle reports that the GCFinder pipeline breaks (i.e. cannot distinguish a star from a globular cluster) in the color range
-
-
-
-# Modificações
-
-## Notebook
-
-## ANN
-
-- qual deve ser o tamanho da amostra ideal ???
-
-
-
