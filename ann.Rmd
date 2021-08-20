@@ -32,16 +32,16 @@ softmax = function(A) {return(exp(A) / rowSums(exp(A)))}
 ```
 
 The next function loads the dataset and splits it into the three samples
-we need: training (60%), validation (20%) and test (20%). It takes account a percentage of GC on which to sample from the data. The data contains less SSPs then stars, so the loading process fixes the number of SSPs and samples a number of stars accordingly to keep the proportion. The default value is 0.1.
+we need: training (60%), validation (20%) and test (20%). 
 
 
 ```{r}
-load_dataset = function(vals, tests, sample_percentage = 0.1) {
+load_dataset = function(vals, tests) {
   
   dpath = "./catalog/xdata+ssp.txt"
   dataset = read.csv(dpath, sep = "")
   colours = c('FUV-r', 'NUV-r', 'u-r', 'J378-r', 'J395-r', 'J410-r', 'J430-r', 'g-r', 'J515-r', 'bp-r', 'r-J660', 'r-G','r-i','r-rp', 'r-J861', 'r-z', 'r-J', 'r-H', 'r-Ks', 'r-W1', 'r-W2', 'r-W3', 'r-W4')
-  
+  sample_percentage = 0.1
   n_ssp = 531 # how many GC ssp were imported from the data
   n_star = as.integer(n_ssp/sample_percentage) - n_ssp # the remaining of the set will be sampled stars
   
@@ -227,8 +227,7 @@ the network performance on a totally unknown dataset, the test sample.
 ```{r}
 vals = .2  # validation split
 tests = .2  # test split
-ssp_perc = 0.08
-samples = load_dataset(vals,tests, ssp_perc)  # loading dataset
+samples = load_dataset(vals,tests)  # loading dataset
 
 # training sample
 X_train = samples$X_train
